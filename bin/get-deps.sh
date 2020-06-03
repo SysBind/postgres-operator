@@ -30,17 +30,17 @@ fi
 
 
 # Idempotent installations
-if (yum repolist | egrep -q '^epel/') ; then
-	echo "Confirmed EPEL repo exists..."
-else
-	echo "=== Installing EPEL ==="
-	# Prefer distro-managed epel-release if it exists (e.g. CentOS)
-	if (yum -q list epel-release 2>/dev/null); then
-		sudo yum -y install epel-release
-	else
-		sudo yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-	fi
-fi
+#if (yum repolist | egrep -q '^epel/') ; then
+#	echo "Confirmed EPEL repo exists..."
+#else
+#	echo "=== Installing EPEL ==="
+#	# Prefer distro-managed epel-release if it exists (e.g. CentOS)
+#	if (yum -q list epel-release 2>/dev/null); then
+#		sudo yum -y install epel-release
+#	else
+#		sudo yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+#	fi
+#fi
 
 if which go; then
 	echo -n "  Found: " && go version

@@ -11,7 +11,7 @@ LABEL name="pgo-apiserver" \
 
 # PGDG PostgreSQL Repository
 
-RUN yum -y install postgresql${PGVERSION} hostname && yum -y clean all
+RUN yum -y install postgresql12 hostname && yum -y clean all
 
 ADD bin/apiserver /usr/local/bin
 ADD conf/postgres-operator /default-pgo-config

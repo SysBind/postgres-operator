@@ -1,12 +1,11 @@
-export GOPATH=$HOME/odev
+export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOBIN
 # NAMESPACE is the list of namespaces the Operator will watch
-export NAMESPACE=pgouser1,pgouser2
+export NAMESPACE=database
 
 # PGO_INSTALLATION_NAME is the unique name given to this Operator install
 # this supports multi-deployments of the Operator on the same Kube cluster
-export PGO_INSTALLATION_NAME=devtest
+export PGO_INSTALLATION_NAME=moodlesaas
 
 # PGO_OPERATOR_NAMESPACE is the namespace the Operator is deployed into
 export PGO_OPERATOR_NAMESPACE=pgo
@@ -18,10 +17,14 @@ export PGO_CMD=kubectl
 export PGOROOT=$GOPATH/src/github.com/crunchydata/postgres-operator
 
 # the version of the Operator you run is set by these vars
-export PGO_IMAGE_PREFIX=registry.developers.crunchydata.com/crunchydata
+export PGO_IMAGE_PREFIX=$(minikube -p maas ip):5000/crunchydata
 export PGO_BASEOS=centos7
 export PGO_VERSION=4.3.1
 export PGO_IMAGE_TAG=$PGO_BASEOS-$PGO_VERSION
+export PGO_PG_VERSION=12
+export PGO_PG_FULLVERSION=12.3
+export PGO_BACKREST_VERSION=2.25
+export IMGBUILDER=docker
 
 # for setting the pgo apiserver port, disabling TLS or not verifying TLS
 # if TLS is disabled, ensure setip() function port is updated and http is used in place of https

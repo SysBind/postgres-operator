@@ -9,7 +9,7 @@ LABEL name="pgo-sqlrunner" \
 	summary="Crunchy PostgreSQL Operator - SQL Runner" \
 	description="Crunchy PostgreSQL Operator - SQL Runner"
 
-ENV PGROOT="/usr/pgsql-${PGVERSION}"
+ENV PGROOT="/usr/pgsql-12"
 
 RUN yum -y install epel-release \
 	&& yum -y install \
@@ -18,7 +18,7 @@ RUN yum -y install epel-release \
 		hostname  \
 		nss_wrapper \
 		procps-ng \
-		postgresql${PGVERSION} \
+		postgresql12 \
 	&& yum clean all -y
 
 RUN mkdir -p /opt/cpm/bin /opt/cpm/conf /pgconf \
